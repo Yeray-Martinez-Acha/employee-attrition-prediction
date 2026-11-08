@@ -33,6 +33,11 @@ TieneStockOptions: binary flag, since the effect of StockOptionLevel is not line
 Log transform of the skewed tenure variables.
 No data leakage. All preprocessing lives inside a single scikit-learn Pipeline, fitted within each cross-validation fold.
 Monte Carlo simulation of the expected number of leavers per department, built on the calibrated probabilities.
+## Experiment tracking
+
+All model variants were tracked with MLflow and compared on the same cross-validation folds:
+
+![MLflow experiments](reports/figures/14_mlflow_experimentos.png)
 Project structure
 ├── config.yaml              # Paths, seed, columns to drop, MLflow settings
 ├── requirements.txt         # Pinned direct dependencies
