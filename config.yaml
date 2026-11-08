@@ -1,0 +1,94 @@
+project:
+  name: rotacion-empleados
+  random_state: 42
+
+data:
+  raw_path: data/raw/dataset_v1.0.csv
+  encoding: utf-8-sig
+  target: Attrition
+  positive_class: "Yes"
+
+preprocessing:
+  drop_columns:
+    - EmployeeCount
+    - Over18
+    - StandardHours
+    - EmployeeNumber
+    - DailyRate
+    - HourlyRate
+    - MonthlyRate
+    - Department
+  test_size: 0.3
+
+features:
+  numericas:
+    - Age
+    - DistanceFromHome
+    - NumCompaniesWorked
+    - PercentSalaryHike
+    - TotalWorkingYears
+    - TrainingTimesLastYear
+    - YearsAtCompany
+    - YearsInCurrentRole
+    - YearsSinceLastPromotion
+    - YearsWithCurrManager
+    - SalarioRelativo
+    - NumInsatisfaccion
+  ordinales:
+    - Education
+    - EnvironmentSatisfaction
+    - JobInvolvement
+    - JobLevel
+    - JobSatisfaction
+    - PerformanceRating
+    - RelationshipSatisfaction
+    - WorkLifeBalance
+  viajes_orden:
+    - Non-Travel
+    - Travel_Rarely
+    - Travel_Frequently
+  binarias:
+    - OverTime
+    - Gender
+    - TieneStockOptions
+  nominales:
+    JobRole: Sales Executive
+    EducationField: Life Sciences
+    MaritalStatus: Married
+  sensibles:
+    - Gender
+    - MaritalStatus
+    - Age
+  asimetricas:
+    - TotalWorkingYears
+    - YearsAtCompany
+    - YearsInCurrentRole
+    - YearsSinceLastPromotion
+    - YearsWithCurrManager
+
+model:
+  model:
+  max_iter: 1000
+  variante_final:
+    nuevas_variables: true
+    solo_indice: true
+    excluir_sensibles: true
+    log_asimetricas: true
+
+umbral:
+  pct_salario_anual: 0.2
+  horas_conversacion: 2
+  horas_mes: 160
+  eficacia_escenarios:
+    - 0.10
+    - 0.25
+    - 0.50
+  eficacia_elegida: 0.10
+  
+paths:
+  models: models
+  figures: reports/figures
+
+mlflow:
+  experiment_name: rotacion-empleados
+  tracking_uri: mlflow.db

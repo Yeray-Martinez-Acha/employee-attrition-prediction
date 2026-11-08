@@ -1,0 +1,20 @@
+{
+  "variante": {
+    "nuevas_variables": true,
+    "solo_indice": true,
+    "excluir_sensibles": true,
+    "log_asimetricas": true
+  },
+  "umbral": 0.23,
+  "auc_cv": 0.8652,
+  "brier_cv": 0.084,
+  "n_train": 1029,
+  "metricas_test": {
+    "auc_test": 0.8241,
+    "brier_test": 0.098,
+    "recall_test": 0.7042,
+    "precision_test": 0.4902,
+    "especificidad_test": 0.8595,
+    "alarmas_test": 102
+  }
+}
